@@ -1,6 +1,6 @@
 f = x ** 2 + 2 * x - 5
-method = iterations
+method = combined
 x = 1.4495
 y = 0.0000
-iterations = 100
-e = 0.0000e+00
+iterations = 4
+e = 2.1426e-11

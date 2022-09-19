@@ -82,10 +82,16 @@ def iterations(l, r):
 
 def combined(l, r):
     k = 0
-    c = l - (f(l) / (f(r) - f(l)) * (r - l))
-    while (d1f(c) * d2f(c) < 0):
-        c = c - (f(c) / d1f(c))
-    return
+    while (abs(r-l) > e):
+        c = l - (f(l) / (f(r) - f(l)) * (r - l))
+        if (f(l) * d2f(l) > 0):
+            l = l - f(l) / d1f(l)
+            r = c
+        if (f(r) * d2f(r) > 0):
+            l = c
+            r = r - f(r) / d1f(r)
+        k += 1
+    return (l + r) / 2, k, f((l + r) / 2)
 
  
 _len = len(str(e).split(".")[1])
@@ -108,6 +114,9 @@ elif method == 3:
 elif method == 4:
     func = iterations(l, r)
     file.write("method = iterations")
+elif method == 5:
+    func = combined(l, r)
+    file.write("method = combined")
 else:
     func = newton(r)
     file.write('method = newton')
